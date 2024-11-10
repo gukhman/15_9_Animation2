@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ProductAdapter(
     private val products: List<Product>,
-    private val onItemClick: (Product) -> Unit
+    private val onItemClick: (Product, ImageView) -> Unit
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -30,7 +30,7 @@ class ProductAdapter(
         holder.productPrice.text = "${product.price} ₽"
         holder.productImage.setImageResource(product.imageRes)
         holder.itemView.setOnClickListener {
-            onItemClick(product) // При клике вызываем onItemClick
+            onItemClick(product, holder.productImage) // При клике вызываем onItemClick
         }
     }
 

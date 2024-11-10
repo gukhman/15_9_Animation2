@@ -8,5 +8,25 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         setupWindowInsets(R.id.main)
         setupToolbar(R.id.toolbar, false)
+
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, ProductListFragment())
+                .commit()
+        }
+    }
+
+    fun showCartFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, CartFragment())
+            .addToBackStack(null)
+            .commit()
+    }
+
+    fun showReceiptFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, ReceiptFragment())
+            .addToBackStack(null)
+            .commit()
     }
 }

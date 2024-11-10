@@ -18,7 +18,7 @@ open class BaseActivity : AppCompatActivity() {
         enableEdgeToEdge()
     }
 
-    protected fun setupToolbar(toolbarId: Int, needBackArrow: Boolean) {
+    fun setupToolbar(toolbarId: Int, needBackArrow: Boolean) {
         toolbar = findViewById(toolbarId)
         setSupportActionBar(toolbar)
         if (needBackArrow) {
@@ -38,15 +38,18 @@ open class BaseActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                finish()
+                // Если в back stack есть фрагменты, вернуться к предыдущему
+                if (supportFragmentManager.backStackEntryCount > 0) {
+                    supportFragmentManager.popBackStack()
+                } else {
+                    finish()  // Закрыть активность, если фрагментов нет
+                }
                 true
             }
-
             R.id.action_exit -> {
-                finishAffinity()
+                finishAffinity()  // Закрыть все активности
                 true
             }
-
             else -> super.onOptionsItemSelected(item)
         }
     }

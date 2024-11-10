@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">15_9_Animation2</string>
-    <string name="toolbarTitle">Продовольственная корзина</string>
+    <string name="toolbarTitle">PC Shop</string>
     <string name="exit">Выход</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="productName_text">Наименование</string>
+    <string name="productPrice_text">Цена</string>
+    <string name="chooseTV_text">Выберите товары</string>
+    <string name="buyTV_text">Товары в корзине:</string>
 
 
 </resources>
